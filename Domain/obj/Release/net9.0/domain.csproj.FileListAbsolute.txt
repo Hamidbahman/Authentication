@@ -1,0 +1,15 @@
+C:\Users\hamid.RYMOND\26\securitysystem\authentication\domain\bin\Release\net9.0\domain.deps.json
+C:\Users\hamid.RYMOND\26\securitysystem\authentication\domain\bin\Release\net9.0\domain.runtimeconfig.json
+C:\Users\hamid.RYMOND\26\securitysystem\authentication\domain\bin\Release\net9.0\domain.dll
+C:\Users\hamid.RYMOND\26\securitysystem\authentication\domain\bin\Release\net9.0\domain.pdb
+C:\Users\hamid.RYMOND\26\securitysystem\authentication\domain\obj\Release\net9.0\domain.csproj.AssemblyReference.cache
+C:\Users\hamid.RYMOND\26\securitysystem\authentication\domain\obj\Release\net9.0\domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hamid.RYMOND\26\securitysystem\authentication\domain\obj\Release\net9.0\domain.AssemblyInfoInputs.cache
+C:\Users\hamid.RYMOND\26\securitysystem\authentication\domain\obj\Release\net9.0\domain.AssemblyInfo.cs
+C:\Users\hamid.RYMOND\26\securitysystem\authentication\domain\obj\Release\net9.0\domain.csproj.CoreCompileInputs.cache
+C:\Users\hamid.RYMOND\26\securitysystem\authentication\domain\obj\Release\net9.0\domain.sourcelink.json
+C:\Users\hamid.RYMOND\26\securitysystem\authentication\domain\obj\Release\net9.0\domain.dll
+C:\Users\hamid.RYMOND\26\securitysystem\authentication\domain\obj\Release\net9.0\refint\domain.dll
+C:\Users\hamid.RYMOND\26\securitysystem\authentication\domain\obj\Release\net9.0\domain.pdb
+C:\Users\hamid.RYMOND\26\securitysystem\authentication\domain\obj\Release\net9.0\domain.genruntimeconfig.cache
+C:\Users\hamid.RYMOND\26\securitysystem\authentication\domain\obj\Release\net9.0\ref\domain.dll
