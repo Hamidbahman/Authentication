@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hamid.RYMOND\\26\\securitySystem\\Authentication\\application\\application.csproj": {}
+    "C:\\Users\\Dr\\authentication\\authentication\\application\\application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hamid.RYMOND\\26\\securitySystem\\Authentication\\application\\application.csproj": {
+    "C:\\Users\\Dr\\authentication\\authentication\\application\\application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hamid.RYMOND\\26\\securitySystem\\Authentication\\application\\application.csproj",
+        "projectUniqueName": "C:\\Users\\Dr\\authentication\\authentication\\application\\application.csproj",
         "projectName": "application",
-        "projectPath": "C:\\Users\\hamid.RYMOND\\26\\securitySystem\\Authentication\\application\\application.csproj",
-        "packagesPath": "C:\\Users\\hamid.RYMOND\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hamid.RYMOND\\26\\securitySystem\\Authentication\\application\\obj\\",
+        "projectPath": "C:\\Users\\Dr\\authentication\\authentication\\application\\application.csproj",
+        "packagesPath": "C:\\Users\\Dr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dr\\authentication\\authentication\\application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\hamid.RYMOND\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Dr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,14 +22,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\hamid.RYMOND\\26\\securitySystem\\Authentication\\infrastructure\\infrastructure.csproj": {
-                "projectPath": "C:\\Users\\hamid.RYMOND\\26\\securitySystem\\Authentication\\infrastructure\\infrastructure.csproj"
+              "C:\\Users\\Dr\\authentication\\authentication\\infrastructure\\infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Dr\\authentication\\authentication\\infrastructure\\infrastructure.csproj"
               }
             }
           }
@@ -115,21 +112,17 @@
         }
       }
     },
-    "C:\\Users\\hamid.RYMOND\\26\\securitySystem\\Authentication\\domain\\domain.csproj": {
+    "C:\\Users\\Dr\\authentication\\authentication\\domain\\domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hamid.RYMOND\\26\\securitySystem\\Authentication\\domain\\domain.csproj",
+        "projectUniqueName": "C:\\Users\\Dr\\authentication\\authentication\\domain\\domain.csproj",
         "projectName": "domain",
-        "projectPath": "C:\\Users\\hamid.RYMOND\\26\\securitySystem\\Authentication\\domain\\domain.csproj",
-        "packagesPath": "C:\\Users\\hamid.RYMOND\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hamid.RYMOND\\26\\securitySystem\\Authentication\\domain\\obj\\",
+        "projectPath": "C:\\Users\\Dr\\authentication\\authentication\\domain\\domain.csproj",
+        "packagesPath": "C:\\Users\\Dr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dr\\authentication\\authentication\\domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\hamid.RYMOND\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Dr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -137,6 +130,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -194,21 +188,17 @@
         }
       }
     },
-    "C:\\Users\\hamid.RYMOND\\26\\securitySystem\\Authentication\\infrastructure\\infrastructure.csproj": {
+    "C:\\Users\\Dr\\authentication\\authentication\\infrastructure\\infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hamid.RYMOND\\26\\securitySystem\\Authentication\\infrastructure\\infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Dr\\authentication\\authentication\\infrastructure\\infrastructure.csproj",
         "projectName": "infrastructure",
-        "projectPath": "C:\\Users\\hamid.RYMOND\\26\\securitySystem\\Authentication\\infrastructure\\infrastructure.csproj",
-        "packagesPath": "C:\\Users\\hamid.RYMOND\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hamid.RYMOND\\26\\securitySystem\\Authentication\\infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\Dr\\authentication\\authentication\\infrastructure\\infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Dr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dr\\authentication\\authentication\\infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\hamid.RYMOND\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Dr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -216,14 +206,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\hamid.RYMOND\\26\\securitySystem\\Authentication\\domain\\domain.csproj": {
-                "projectPath": "C:\\Users\\hamid.RYMOND\\26\\securitySystem\\Authentication\\domain\\domain.csproj"
+              "C:\\Users\\Dr\\authentication\\authentication\\domain\\domain.csproj": {
+                "projectPath": "C:\\Users\\Dr\\authentication\\authentication\\domain\\domain.csproj"
               }
             }
           }
