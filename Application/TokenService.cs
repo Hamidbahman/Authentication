@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json;
 using System.Web;
+using System.Collections.Generic;
 
 namespace Application
 {
@@ -27,19 +28,15 @@ namespace Application
         {
             var secretKeyString = configuration["AccessToken:SecretKey"] 
                 ?? throw new InvalidOperationException("Secret key is missing");
-
-            // Ensure secret key is at least 32 bytes (256 bits)
-            // We'll PBKDF2-derive a stable 32-byte key from the given input
+            
             _secretKey = DeriveKey(secretKeyString);
         }
 
         private byte[] DeriveKey(string input)
         {
-            // Salt is a fixed, unique value for this service – you can store it in config or code
-            // For per-user or per-token salts, you’d store them separately.
             using var pbkdf2 = new Rfc2898DeriveBytes(
                 Encoding.UTF8.GetBytes(input),
-                Encoding.UTF8.GetBytes("TokenServiceSalt"),
+                Encoding.UTF8.GetBytes("TokenServiceSalt"), 
                 iterations: 10000,
                 HashAlgorithmName.SHA256
             );
@@ -80,15 +77,12 @@ namespace Application
             if (!string.IsNullOrEmpty(audience))
                 claims["aud"] = audience;
 
-            // Serialize claims to JSON
             string claimsJson = JsonSerializer.Serialize(claims);
             byte[] claimsBytes = Encoding.UTF8.GetBytes(claimsJson);
 
-            // Compute signature
             using var hmac = new HMACSHA512(_secretKey);
             byte[] signature = hmac.ComputeHash(claimsBytes);
 
-            // Encode using base64url
             string encodedClaims = Base64UrlEncode(claimsBytes);
             string encodedSignature = Base64UrlEncode(signature);
 
@@ -97,6 +91,8 @@ namespace Application
 
         /// <summary>
         /// Generates a random refresh token hashed with the service key.
+        /// You typically store this hashed token string in your database 
+        /// (along with user ID, expiration, etc.).
         /// </summary>
         public string GenerateRefreshToken()
         {
@@ -107,7 +103,23 @@ namespace Application
             using var hmac = new HMACSHA512(_secretKey);
             byte[] hashedBytes = hmac.ComputeHash(randomBytes);
 
-            return Base64UrlEncode(hashedBytes); // Return a base64url-encoded token
+            return Base64UrlEncode(hashedBytes);
+        }
+
+        /// <summary>
+        /// Validates the refresh token by comparing the provided token 
+        /// (from the client) with the stored hashed token (from the DB).
+        /// </summary>
+        public bool ValidateRefreshToken(string providedRefreshToken, string storedHashedRefreshToken)
+        {
+            if (string.IsNullOrEmpty(providedRefreshToken) || string.IsNullOrEmpty(storedHashedRefreshToken))
+                return false;
+
+            byte[] providedBytes = Base64UrlDecode(providedRefreshToken);
+            byte[] storedBytes = Base64UrlDecode(storedHashedRefreshToken);
+
+            // Compare in a timing-safe manner
+            return SecureCompare(providedBytes, storedBytes);
         }
 
         /// <summary>
@@ -128,22 +140,19 @@ namespace Application
                 byte[] claimsBytes = Base64UrlDecode(parts[0]);
                 byte[] providedSignature = Base64UrlDecode(parts[1]);
 
-                // Recompute signature
                 using var hmac = new HMACSHA512(_secretKey);
                 byte[] computedSignature = hmac.ComputeHash(claimsBytes);
 
-                // Timing-safe comparison
                 if (!SecureCompare(computedSignature, providedSignature))
                     return new TokenValidationResult { IsValid = false };
 
-                // Deserialize claims
                 var claims = JsonSerializer.Deserialize<Dictionary<string, string>>(
                     Encoding.UTF8.GetString(claimsBytes)
                 );
+
                 if (claims == null) 
                     return new TokenValidationResult { IsValid = false };
 
-                // Check mandatory fields
                 if (!claims.TryGetValue("userId", out var userIdStr)
                     || !claims.TryGetValue("iat", out var issuedStr)
                     || !claims.TryGetValue("exp", out var expStr))
@@ -151,7 +160,6 @@ namespace Application
                     return new TokenValidationResult { IsValid = false };
                 }
 
-                // Convert ticks
                 long userId = long.Parse(userIdStr);
                 long issuedTicks = long.Parse(issuedStr);
                 long expirationTicks = long.Parse(expStr);
@@ -159,11 +167,9 @@ namespace Application
                 var issuedAt = new DateTime(issuedTicks, DateTimeKind.Utc);
                 var expiresAt = new DateTime(expirationTicks, DateTimeKind.Utc);
 
-                // Check if expired
                 if (DateTime.UtcNow > expiresAt)
                     return new TokenValidationResult { IsValid = false };
 
-                // Return all relevant data
                 var result = new TokenValidationResult
                 {
                     IsValid = true,
@@ -186,7 +192,7 @@ namespace Application
             }
         }
 
-        // Helpers
+        // ===== Helpers =====
 
         /// <summary>
         /// Base64Url encoding (RFC 4648) – avoids +, /, and = characters to be URL-safe.
